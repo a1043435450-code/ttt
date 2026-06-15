@@ -1,2 +1,5 @@
-// Preload script for security
-console.log('Electron app initialized');
+import { contextBridge } from 'electron';
+
+contextBridge.exposeInMainWorld('electronAPI', {
+  getVersion: () => '0.1.0'
+});
