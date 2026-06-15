@@ -1,0 +1,19 @@
+{
+  "name": "saqr-backend-tests",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-node": "^29.7.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.5",
+    "better-sqlite3": "^9.2.2"
+  }
+}
