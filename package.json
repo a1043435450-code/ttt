@@ -1,0 +1,21 @@
+{
+  "name": "saqr-accounting-system",
+  "version": "0.1.0",
+  "description": "Saqr Al-Rahba Accounting System",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "desktop"
+  ],
+  "scripts": {
+    "setup": "npm run install-all && npm run build",
+    "install-all": "npm install --workspaces",
+    "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run dev --workspace=frontend\"",
+    "build": "npm run build --workspaces",
+    "start": "npm start --workspace=desktop"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

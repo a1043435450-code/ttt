@@ -1,0 +1,32 @@
+{
+  "name": "saqr-desktop",
+  "version": "0.1.0",
+  "main": "dist/main.js",
+  "homepage": "./",
+  "scripts": {
+    "dev": "electron .",
+    "build": "electron-builder",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.2.2"
+  },
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.saqr.accounting",
+    "productName": "Saqr Al-Rahba Accounting System",
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
