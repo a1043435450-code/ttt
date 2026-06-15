@@ -1,6 +1,5 @@
-import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { User, License } from '../models.js';
+import bcryptjs from 'bcryptjs';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'saqr-secret-key';
 
@@ -13,7 +12,7 @@ export function verifyPassword(password, hash) {
 }
 
 export function generateToken(userId) {
-  return jwt.sign({ userId }, JWT_SECRET, { expiresIn: '24h' });
+  return jwt.sign({ id: userId }, JWT_SECRET, { expiresIn: '24h' });
 }
 
 export function verifyToken(token) {
@@ -23,27 +22,3 @@ export function verifyToken(token) {
     return null;
   }
 }
-
-export function authenticateUser(username, password) {
-  const user = User.getByUsername(username);
-  if (!user) return null;
-  
-  if (!verifyPassword(password, user.password_hash)) {
-    return null;
-  }
-  
-  return user;
-}
-
-export function checkLicenseValidity() {
-  return !License.isExpired();
-}
-
-export default {
-  hashPassword,
-  verifyPassword,
-  generateToken,
-  verifyToken,
-  authenticateUser,
-  checkLicenseValidity
-};
